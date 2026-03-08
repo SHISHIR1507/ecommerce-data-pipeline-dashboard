@@ -6,7 +6,7 @@ import {
 } from 'recharts';
 import {
   Users, ShoppingCart, DollarSign, TrendingUp,
-  AlertCircle
+  AlertCircle, Search, Calendar
 } from 'lucide-react';
 
 const API_BASE = 'http://localhost:8000/api';
@@ -22,6 +22,10 @@ function App() {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // Bonus: Filters State
+  const [searchQuery, setSearchQuery] = useState('');
+  const [dateRange, setDateRange] = useState({ start: '', end: '' });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,7 +56,21 @@ function App() {
     fetchData();
   }, []);
 
-  // Aggregated KPIs
+  // Bonus: Apply Filters
+  const filteredCustomers = data.topCustomers.filter(c =>
+    c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    c.customer_id.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const filteredRevenue = data.revenue.filter(r => {
+    if (!dateRange.start && !dateRange.end) return true;
+    const rDate = r.order_year_month;
+    const afterStart = !dateRange.start || rDate >= dateRange.start;
+    const beforeEnd = !dateRange.end || rDate <= dateRange.end;
+    return afterStart && beforeEnd;
+  });
+
+  // Aggregated KPIs (computed from full data, not filtered data)
   const totalRevenue = data.regions.reduce((sum, r) => sum + r.total_revenue, 0);
   const totalCustomers = data.regions.reduce((sum, r) => sum + r.num_customers, 0);
   const totalOrders = data.regions.reduce((sum, r) => sum + r.num_orders, 0);
@@ -99,14 +117,33 @@ function App() {
         {/* Charts Row */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 bg-slate-800 rounded-xl p-6 border border-slate-700 shadow-sm min-h-[400px] flex flex-col">
-            <h2 className="text-lg font-semibold mb-6 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-indigo-400" />
-              Monthly Revenue Trend
-            </h2>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <h2 className="text-lg font-semibold flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-indigo-400" />
+                Monthly Revenue Trend
+              </h2>
+              <div className="flex items-center gap-2 text-sm bg-slate-900/50 p-1.5 rounded-lg border border-slate-700">
+                <Calendar className="w-4 h-4 text-slate-400 ml-2" />
+                <input
+                  type="month"
+                  value={dateRange.start}
+                  onChange={e => setDateRange(prev => ({ ...prev, start: e.target.value }))}
+                  className="bg-transparent text-slate-300 border-none outline-none focus:ring-0 ml-1 py-1"
+                />
+                <span className="text-slate-500">—</span>
+                <input
+                  type="month"
+                  value={dateRange.end}
+                  onChange={e => setDateRange(prev => ({ ...prev, end: e.target.value }))}
+                  className="bg-transparent text-slate-300 border-none outline-none focus:ring-0 mr-1 py-1"
+                />
+              </div>
+            </div>
+
             <div className="flex-1 min-h-[300px]">
               {loading ? <Skeleton /> : (
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={data.revenue} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                  <LineChart data={filteredRevenue} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
                     <XAxis dataKey="order_year_month" stroke="#94a3b8" tick={{ fill: '#94a3b8' }} tickMargin={10} />
                     <YAxis
@@ -163,12 +200,22 @@ function App() {
 
         {/* Bottom Row: Top Customers & Regions */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 bg-slate-800 rounded-xl border border-slate-700 shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-slate-700">
+          <div className="lg:col-span-2 bg-slate-800 rounded-xl border border-slate-700 shadow-sm overflow-hidden flex flex-col">
+            <div className="p-6 border-b border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <h2 className="text-lg font-semibold flex items-center gap-2">
                 <Users className="w-5 h-5 text-blue-400" />
                 Top Customers
               </h2>
+              <div className="relative">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search customers..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="bg-slate-900/50 border border-slate-700 text-sm rounded-lg block w-full pl-9 pr-3 py-2 outline-none focus:border-indigo-500 transition-colors"
+                />
+              </div>
             </div>
             <div className="overflow-x-auto">
               {loading ? (
@@ -184,7 +231,7 @@ function App() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-700">
-                    {data.topCustomers.map((cust) => (
+                    {filteredCustomers.length > 0 ? filteredCustomers.map((cust) => (
                       <tr key={cust.customer_id} className="hover:bg-slate-700/50 transition-colors">
                         <td className="px-6 py-4">
                           <div className="flex flex-col">
@@ -203,7 +250,13 @@ function App() {
                           </span>
                         </td>
                       </tr>
-                    ))}
+                    )) : (
+                      <tr>
+                        <td colSpan="4" className="px-6 py-8 text-center text-slate-500">
+                          No customers found matching "{searchQuery}"
+                        </td>
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               )}

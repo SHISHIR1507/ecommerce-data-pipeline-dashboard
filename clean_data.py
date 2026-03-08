@@ -69,7 +69,7 @@ def clean_customers(df: pd.DataFrame):
 
     df["name"] = df["name"].astype(str).str.strip()
     df["region"] = df["region"].astype(str).str.strip()
-    df["region"] = df["region"].replace({"": "Unknown", "nan": "Unknown", "None": "Unknown"})
+    df["region"] = df["region"].replace({"": "Unknown", "nan": "Unknown", "None": "Unknown", "<NA>": "Unknown"})
 
     df["email"] = df["email"].astype(str).str.strip().str.lower()
     df["email"] = df["email"].replace({"": pd.NA, "nan": pd.NA})
