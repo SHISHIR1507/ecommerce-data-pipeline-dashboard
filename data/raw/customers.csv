@@ -1,0 +1,131 @@
+customer_id,name,email,region,signup_date
+C0086,Aadhya Sinha,aadhya.sinha@gmail.com,East,2021-12-25
+C0001,Ayaan Sharma,AYAAN.SHARMA@YAHOO.COM,,2023-05-15
+C0112,Rohan Nair,rohan.nair@outlook.com,  North ,2025-10-28
+C0032,Reyansh Gupta,REYANSH.GUPTA@MAIL.IN,North,2021-11-20
+C0016,Aarav Das,AARAV.DAS@GMAIL.COM,East,2024-03-07
+C0076,Myra Nair,myra.nair@yahoo.com,South,2022-03-19
+C0018,Ananya Rao,ananya.rao@mail.in,,2024-11-13
+C0050,Rohan Das,rohan.das@gmail.com,,2024-11-27
+C0110,Aditya Nair,aditya.nair@gmail.com,North,2023-05-01
+C0077,  Priya Kumar  ,PRIYA.KUMAR@COMPANY.CO,East,2022-01-13
+C0040,Amit Chopra,AMIT.CHOPRA@YAHOO.COM,North,not-a-date
+C0090,Tanvi Malhotra,tanvi.malhotra@yahoo.com,West,2022-02-21
+C0120,Vivaan Verma,vivaan.verma@yahoo.com,  South ,2022-03-01
+C0033,Pooja Bhat,pooja.bhat@mail.in,,not-a-date
+C0093,Ishaan Bansal,ishaan.bansal@outlook.com,West,2024-02-03
+C0073,Priya Joshi,priya.joshi@yahoo.com,West,2025-03-08
+C0105,Kavya Rao,kavya.rao@gmail.com,East,2023-06-24
+C0048,Kavya Malhotra,kavya.malhotra@yahoo.com,South,2024-09-21
+C0080,Aadhya Agarwal,AADHYA.AGARWAL@COMPANY.CO,West,2024-06-02
+C0035,Sara Pillai,sara.pillai@outlook.com,  North ,2022-07-21
+C0045,Myra Iyer,myra.iyer@outlook.com,North,2022-09-26
+C0064,Sara Malhotra,SARA.MALHOTRA@OUTLOOK.COM,North,2022-09-30
+C0020,  Aadhya Sinha  ,aadhya.sinha@gmail.com,North,2021-05-26
+C0110,Aditya Nair,aditya.nair@gmail.com,North,2021-10-24
+C0002,Aditya Sharma,adityasharma.com,North,2024-12-07
+C0037,Ayaan Gupta,ayaan.gupta@yahoo.com,,2023-05-31
+C0087,Rohan Agarwal,ROHAN.AGARWAL@OUTLOOK.COM,West,2023-04-17
+C0025,Tanvi Sharma,TANVI.SHARMA@YAHOO.COM,South,2021-12-04
+C0119,Deepak Verma,deepak.verma@yahoo.com,  West ,2024-08-02
+C0116,Aditya Nair,ADITYA.NAIR@GMAIL.COM,South,2025-03-02
+C0012,Ayaan Kumar,ayaan.kumar@company.co,,2023-12-20
+C0088,Amit Pillai,amit.pillai@yahoo.com,East,2025-04-07
+C0091,Riya Bhat,riya@bhat,  West ,2024-05-31
+C0070,Kavya Sinha,kavya.sinha@company.co,East,2025-06-22
+C0092,  Isha Patel  ,isha.patel@gmail.com,North,2025-09-01
+C0108,Riya Sharma,riya.sharma@gmail.com,East,2025-07-01
+C0115,Rahul Das,rahul.das@gmail.com,East,2021-04-03
+C0103,Aditya Pillai,aditya.pillai@outlook.com,South,2025-06-12
+C0051,  Mohan Bansal  ,mohan.bansal@yahoo.com,North,2025-07-05
+C0041,Rohan Joshi,rohan.joshi@company.co,South,2023-03-28
+C0074,Amit Iyer,amit.iyer@outlook.com,South,2025-04-10
+C0099,  Reyansh Malhotra  ,reyansh@malhotra,South,2021-11-13
+C0005,  Kavya Bhat  ,kavya@bhat,East,2025-10-31
+C0100,Arjun Bansal,arjun.bansal@outlook.com,North,2021-10-30
+C0044,  Nikhil Singh  ,NIKHIL.SINGH@MAIL.IN,  West ,2024-01-08
+C0084,Neha Das,neha.das@mail.in,West,2022-07-12
+C0024,Diya Rao,diya.rao@gmail.com,,2024-08-28
+C0081,  Reyansh Mehta  ,reyansh.mehta@outlook.com,South,2023-04-17
+C0043,Ayaan Rao,AYAAN.RAO@OUTLOOK.COM,East,2024-05-26
+C0089,Aditya Malhotra,aditya@malhotra,West,2021-01-03
+C0069,Tanvi Bansal,TANVI.BANSAL@MAIL.IN,North,2025-03-17
+C0021,  Nikhil Joshi  ,NIKHIL.JOSHI@COMPANY.CO,,2022-05-13
+C0118,Aditya Iyer,aditya.iyer@company.co,North,2024-08-13
+C0107,Reyansh Joshi,reyansh.joshi@outlook.com,  East ,2023-03-22
+C0060,  Tanvi Sharma  ,tanvi.sharma@mail.in,  West ,2021-04-13
+C0026,Mohan Sharma,mohan.sharma@outlook.com,East,2025-05-24
+C0030,Aditya Das,aditya@das,South,2022-06-28
+C0053,Sneha Bhat,sneha.bhat@company.co,,2024-01-28
+C0022,Rohan Chopra,rohan.chopra@gmail.com,West,2024-10-11
+C0027,Karan Kumar,karan.kumar@yahoo.com,,2022-10-05
+C0106,Deepak Sinha,deepak.sinha@company.co,East,2023-09-17
+C0097,Myra Joshi,myra.joshi@yahoo.com,East,2025-07-20
+C0101,  Tanvi Reddy  ,tanvi.reddy@company.co,North,2024-05-05
+C0072,Gita Bansal,gita.bansal@yahoo.com,West,not-a-date
+C0028,Vihaan Verma,vihaan.verma@mail.in,North,2022-01-16
+C0113,Lakshmi Bhat,LAKSHMI.BHAT@COMPANY.CO,West,2022-06-21
+C0013,  Kiara Bhat  ,kiara.bhat@gmail.com,,2025-04-24
+C0056,Aadhya Reddy,AADHYA.REDDY@YAHOO.COM,,2021-05-08
+C0001,Ayaan Sharma,AYAAN.SHARMA@YAHOO.COM,,2022-07-22
+C0098,  Mohan Reddy  ,mohan.reddy@yahoo.com,,2022-11-11
+C0038,Krishna Verma,krishna.verma@gmail.com,South,2024-02-21
+C0114,Mohan Iyer,mohaniyer.com,,2024-02-24
+C0049,Amit Gupta,amit.gupta@yahoo.com,  South ,not-a-date
+C0082,Pooja Das,POOJA.DAS@GMAIL.COM,  West ,2022-06-26
+C0071,Kiara Pillai,kiara.pillai@mail.in,North,2022-05-10
+C0075,Diya Mehta,DIYA.MEHTA@COMPANY.CO,,2021-07-25
+C0036,Aditya Sharma,aditya.sharma@yahoo.com,West,2021-01-20
+C0117,Tanvi Chopra,tanvi.chopra@yahoo.com,West,2022-07-27
+C0111,Diya Mehta,diya@mehta,East,2025-08-16
+C0019,Myra Nair,myra.nair@outlook.com,North,2021-02-13
+C0078,  Vihaan Rao  ,VIHAAN.RAO@COMPANY.CO,  West ,2021-04-20
+C0105,Kavya Rao,kavya.rao@gmail.com,East,2025-11-17
+C0011,  Meera Sinha  ,meera.sinha@yahoo.com,  West ,not-a-date
+C0010,  Sara Bansal  ,SARA.BANSAL@COMPANY.CO,,2025-03-10
+C0057,  Sara Chopra  ,sara.chopra@mail.in,,2021-01-13
+C0063,Aditya Sharma,aditya.sharma@yahoo.com,  South ,2024-03-01
+C0104,Diya Patel,diya.patel@mail.in,South,2022-04-21
+C0055,Isha Rao,ISHA.RAO@OUTLOOK.COM,,2021-11-05
+C0052,Sneha Malhotra,,North,2024-09-29
+C0062,Kiara Gupta,KIARA.GUPTA@MAIL.IN,South,2024-08-27
+C0008,Ananya Bhat,ananya.bhat@yahoo.com,,2022-10-27
+C0017,Sai Gupta,sai.gupta@gmail.com,  South ,2024-01-12
+C0083,Myra Chopra,myrachopra.com,East,2021-12-06
+C0059,Aadhya Rao,aadhya.rao@gmail.com,West,2021-09-19
+C0039,Gita Das,gita.das@yahoo.com,South,not-a-date
+C0067,Deepak Bhat,DEEPAK.BHAT@OUTLOOK.COM,North,2021-08-05
+C0085,Nikhil Bhat,nikhil.bhat@gmail.com,East,not-a-date
+C0094,Ishaan Reddy,ishaan.reddy@mail.in,North,2023-04-30
+C0006,Suresh Sinha,SURESH.SINHA@GMAIL.COM,East,2025-11-10
+C0079,Ishaan Kumar,ISHAAN.KUMAR@OUTLOOK.COM,,2024-05-26
+C0029,Arjun Das,,  West ,2022-05-20
+C0065,Reyansh Sinha,,West,2021-06-05
+C0109,Deepak Joshi,DEEPAK.JOSHI@MAIL.IN,South,2024-08-16
+C0014,Amit Singh,amit.singh@yahoo.com,East,2023-11-06
+C0030,Aditya Das,aditya@das,South,2022-11-04
+C0066,Isha Singh,isha.singh@outlook.com,North,2021-03-26
+C0047,Neha Reddy,neha.reddy@gmail.com,,2022-10-22
+C0100,Arjun Bansal,arjun.bansal@outlook.com,North,2025-10-26
+C0058,Deepak Nair,deepak.nair@company.co,,2023-09-27
+C0061,Kiara Reddy,kiara.reddy@company.co,West,2023-05-14
+C0009,  Vihaan Joshi  ,vihaan.joshi@outlook.com,,2022-10-07
+C0096,Karan Kumar,karan.kumar@company.co,,2022-10-22
+C0015,  Reyansh Nair  ,reyansh.nair@mail.in,South,2023-12-23
+C0068,Meera Iyer,meera.iyer@company.co,,2022-07-08
+C0054,Pooja Patel,pooja.patel@company.co,East,2024-07-07
+C0095,Amit Agarwal,AMIT.AGARWAL@GMAIL.COM,,2024-09-13
+C0017,Sai Gupta,sai.gupta@gmail.com,  South ,2024-01-31
+C0023,  Reyansh Verma  ,reyansh.verma@outlook.com,South,2021-08-14
+C0033,Pooja Bhat,pooja.bhat@mail.in,,2025-06-24
+C0023,  Reyansh Verma  ,reyansh.verma@outlook.com,South,2023-05-15
+C0003,Tanvi Chopra,TANVI.CHOPRA@MAIL.IN,South,2021-11-15
+C0042,Amit Rao,amit.rao@outlook.com,,2021-02-26
+C0076,Myra Nair,myra.nair@yahoo.com,South,2024-02-08
+C0031,Lakshmi Kumar,lakshmi.kumar@outlook.com,  North ,2024-02-28
+C0101,  Tanvi Reddy  ,tanvi.reddy@company.co,North,2022-08-12
+C0102,Aadhya Gupta,aadhya.gupta@gmail.com,North,2021-03-01
+C0046,  Gita Pillai  ,gita.pillai@outlook.com,West,2024-06-14
+C0004,  Sara Pillai  ,sara@pillai,East,2025-02-03
+C0034,Neha Singh,NEHA.SINGH@YAHOO.COM,,2022-08-01
+C0007,Reyansh Reddy,REYANSH.REDDY@OUTLOOK.COM,East,2021-05-27

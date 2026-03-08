@@ -1,0 +1,15 @@
+product_id,product_name,category,unit_price
+P001,Wireless Mouse,Electronics,599.0
+P002,Mechanical Keyboard,Electronics,2499.0
+P003,USB-C Hub,Electronics,1299.0
+P004,Desk Lamp,Home & Office,899.0
+P005,Notebook Pack,Stationery,199.0
+P006,Ergonomic Chair,Furniture,12999.0
+P007,Monitor Stand,Furniture,2199.0
+P008,Webcam HD,Electronics,3499.0
+P009,Whiteboard Marker Set,Stationery,149.0
+P010,Standing Desk Mat,Home & Office,1599.0
+P011,Cable Organizer,Home & Office,349.0
+P012,Portable Charger,Electronics,1799.0
+P013,VR Headset,Electronics,34999.0
+P014,Smart Pen,Stationery,4999.0
