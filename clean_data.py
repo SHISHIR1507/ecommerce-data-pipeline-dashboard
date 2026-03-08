@@ -102,6 +102,84 @@ def clean_customers(df: pd.DataFrame) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
+# 1.2  Multi-format date parser
+# ---------------------------------------------------------------------------
+def parse_date(val) -> pd.Timestamp:
+    """Try multiple date formats; return NaT if none match."""
+    if pd.isna(val) or str(val).strip() == "":
+        return pd.NaT
+    val_str = str(val).strip()
+    for fmt in ("%Y-%m-%d", "%d/%m/%Y", "%m-%d-%Y"):
+        try:
+            return pd.to_datetime(val_str, format=fmt)
+        except (ValueError, TypeError):
+            continue
+    logger.warning("orders — unparseable order_date: '%s'", val_str)
+    return pd.NaT
+
+
+# ---------------------------------------------------------------------------
+# Status normalization mapping
+# ---------------------------------------------------------------------------
+STATUS_MAP = {
+    "completed": "completed",
+    "done": "completed",
+    "pending": "pending",
+    "cancelled": "cancelled",
+    "canceled": "cancelled",
+    "refunded": "refunded",
+}
+
+
+# ---------------------------------------------------------------------------
+# 1.2  Clean orders.csv
+# ---------------------------------------------------------------------------
+def clean_orders(df: pd.DataFrame) -> pd.DataFrame:
+    """Apply all cleaning rules to the orders dataset."""
+    report = {
+        "rows_before": len(df),
+        "nulls_before": df.isnull().sum().to_dict(),
+    }
+
+    # --- Drop rows where BOTH customer_id and order_id are null ------------
+    mask_unrecoverable = df["customer_id"].isna() & df["order_id"].isna()
+    # Also catch empty strings
+    mask_unrecoverable |= (
+        (df["customer_id"].astype(str).str.strip() == "") &
+        (df["order_id"].astype(str).str.strip() == "")
+    )
+    rows_dropped = mask_unrecoverable.sum()
+    df = df[~mask_unrecoverable].reset_index(drop=True)
+    report["rows_dropped"] = int(rows_dropped)
+
+    # --- Parse order_date with custom multi-format parser ------------------
+    df["order_date"] = df["order_date"].apply(parse_date)
+
+    # --- Fill missing amount with median grouped by product ----------------
+    df["amount"] = pd.to_numeric(df["amount"], errors="coerce")
+    product_medians = df.groupby("product")["amount"].transform("median")
+    df["amount"] = df["amount"].fillna(product_medians)
+
+    # --- Normalize status to controlled vocabulary -------------------------
+    df["status"] = (
+        df["status"]
+        .astype(str)
+        .str.strip()
+        .str.lower()
+        .map(STATUS_MAP)
+        .fillna("pending")  # fallback for any unmapped value
+    )
+
+    # --- Derive order_year_month -------------------------------------------
+    df["order_year_month"] = df["order_date"].dt.to_period("M").astype(str)
+
+    report["rows_after"] = len(df)
+    report["nulls_after"] = df.isnull().sum().to_dict()
+
+    return df, report
+
+
+# ---------------------------------------------------------------------------
 # Cleaning report printer
 # ---------------------------------------------------------------------------
 def print_report(name: str, report: dict) -> None:
@@ -138,6 +216,13 @@ def main() -> None:
     customers_clean.to_csv(PROCESSED_DIR / "customers_clean.csv", index=False)
     print_report("customers.csv", cust_report)
     logger.info("Saved customers_clean.csv (%d rows)", len(customers_clean))
+
+    # --- Orders ------------------------------------------------------------
+    orders_raw = load_csv(RAW_DIR / "orders.csv")
+    orders_clean, ord_report = clean_orders(orders_raw)
+    orders_clean.to_csv(PROCESSED_DIR / "orders_clean.csv", index=False)
+    print_report("orders.csv", ord_report)
+    logger.info("Saved orders_clean.csv (%d rows)", len(orders_clean))
 
 
 if __name__ == "__main__":
